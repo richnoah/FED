@@ -1,0 +1,21 @@
+function makeClass() {
+  "use strict";
+   class Thermostat {
+     constructor(temperature) {
+       this.temperature = temperature;
+     }
+     //getter
+     get temperature(){
+       return 5/9 * (this._temperature-32); //return in C
+     }
+     set temperature (c){
+       this._temperature = c * 9 / 5 + 32; //return in F
+     }
+   }
+  return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
